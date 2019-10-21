@@ -1,0 +1,37 @@
+.phone-details {
+  padding: 50px;
+
+  h3 {
+    font-size: 28px;
+  }
+}
+
+.phone-details__tabl {
+  width: 100%;
+  column-count: 2;
+  column-gap: 40px;
+
+  dt {
+    margin-bottom: 10px;
+  }
+
+  dd div {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  dd div span {
+    background-color: $second-color;
+    padding: 0 5px;
+    z-index: 10;
+  }
+
+  dd .dash {
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.2);
+  }
+}

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
-import './filter.css';
 
 const Filter = ({ history, searchValues }) => {
   const { pathname } = history.location;
@@ -23,13 +22,18 @@ const Filter = ({ history, searchValues }) => {
 
   return (
     <div className="filter">
-      <input
-        className="filter__query"
-        type="search"
-        name="query"
-        value={searchValues.query}
-        onChange={e => handleChange(e)}
-      />
+      <label htmlFor="search-fild" style={{ display: 'flex' }}>
+        <img src="./img/ico/search.svg" alt="" />
+        <input
+          className="filter__query"
+          id="search-fild"
+          type="search"
+          name="query"
+          placeholder="Search"
+          value={searchValues.query}
+          onChange={e => handleChange(e)}
+        />
+      </label>
 
       <select
         className="filter__sort"

@@ -1,8 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import CatalogContext from '../CatalogContext';
-import './basket.css';
+import CatalogContext from './CatalogContext';
 
 const Basket = ({ history }) => {
   const { setStorage } = useContext(CatalogContext);
@@ -152,7 +151,7 @@ Basket.AddButton = ({ phone }) => {
           >
             {
               sessionStorage.getItem(phone.id)
-                ? 'Added to cart'
+                ? 'In cart'
                 : 'Buy'
             }
           </button>

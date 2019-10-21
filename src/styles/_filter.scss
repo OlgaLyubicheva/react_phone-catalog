@@ -1,0 +1,23 @@
+.filter {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 5px;
+
+  &__query {
+    width: 200px;
+    margin: 0 20px;
+    height: 30px;
+    background-color: $second-color;
+    border: 1px solid $second-color;
+    outline: none;
+  }
+
+  &__query:focus {
+    border-bottom-color: $main-color;
+  }
+
+  &__sort {
+    height: 30px;
+    background-color: $second-color;
+  }
+}

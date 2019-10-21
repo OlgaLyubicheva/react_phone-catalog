@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import PhoneCatalog from '../phonecatalog/PhoneCatalog';
-import Filter from '../filter/Filter';
-import { getPhones } from '../loadingData';
-import './phonespage.css';
+import PhoneCatalog from './PhoneCatalog';
+import Filter from './Filter';
+import { getPhones } from './loadingData';
 
 const getSortFunc = (value) => {
   const values = value.split('*');

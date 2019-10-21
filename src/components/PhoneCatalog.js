@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
-import './phonecatalog.css';
-import Basket from '../basket/Basket';
+import Basket from './Basket';
 
 const PhoneCatalog = ({ phones, match }) => {
   const { url } = match;

@@ -1,0 +1,254 @@
+.header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  box-sizing: border-box;
+  padding: 0 10px;
+  margin-bottom: 20px;
+  justify-content: space-between;
+  background-color: coral;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+.header a {
+  display: inline-block;
+  box-sizing: border-box;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+  padding: 20px 10px 0;
+}
+.header__nav {
+  display: inline-block;
+  align-items: center;
+}
+.header__nav--list {
+  height: 60px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: black;
+}
+.header__nav--list li {
+  display: inline-block;
+  height: 100%;
+}
+.header__basket {
+  display: inline-block;
+  justify-self: end;
+  width: 60px;
+}
+.header__basket img {
+  width: 100%;
+}
+.header__basket--count {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #fff;
+  text-align: center;
+  line-height: 20px;
+}
+.header .active {
+  background-color: rgba(255, 255, 255, 0.2);
+  font-weight: 700;
+}
+
+.basket {
+  margin: 10px auto;
+  padding: 20px;
+  width: 80%;
+  border: 1px solid coral;
+  background-color: white;
+}
+
+.basket__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.basket__list--item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.basket__list--item:hover {
+  background-color: #fff2eb;
+}
+
+.basket__list--item a {
+  text-decoration: none;
+  color: black;
+}
+
+.basket__list--item a:hover {
+  text-decoration: underline #e44e18;
+  color: #e44e18;
+}
+
+.basket__count {
+  width: 50px;
+}
+
+.basket__empty {
+  height: 100px;
+  text-align: center;
+  background-color: #fff2eb;
+  font-size: 50px;
+  line-height: 100px;
+  color: #afafaf;
+}
+
+.filter {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 5px;
+}
+.filter__query {
+  width: 200px;
+  margin: 0 20px;
+  height: 30px;
+  background-color: whitesmoke;
+  border: 1px solid whitesmoke;
+  outline: none;
+}
+.filter__query:focus {
+  border-bottom-color: coral;
+}
+.filter__sort {
+  height: 30px;
+  background-color: whitesmoke;
+}
+
+.phone-details {
+  padding: 50px;
+}
+.phone-details h3 {
+  font-size: 28px;
+}
+
+.phone-details__tabl {
+  width: 100%;
+  column-count: 2;
+  column-gap: 40px;
+}
+.phone-details__tabl dt {
+  margin-bottom: 10px;
+}
+.phone-details__tabl dd div {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+.phone-details__tabl dd div span {
+  background-color: whitesmoke;
+  padding: 0 5px;
+  z-index: 10;
+}
+.phone-details__tabl dd .dash {
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  width: 100%;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.2);
+}
+
+.phone-details-page__main-img {
+  width: 360px;
+  padding: 20px 0;
+}
+
+.phone-details-page__main-img img {
+  width: inherit;
+}
+
+.phone-details-page__info {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  grid-column-gap: 40px;
+  min-width: 460px;
+  text-align: justify;
+  padding: 0 20px;
+  background-color: #fff;
+}
+
+.phone-details-page__info--name {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid coral;
+  padding: 0 20px;
+}
+
+.phone-details-page__info--img {
+  display: inline-block;
+  width: 100px;
+  margin: 0 20px;
+  padding: 5px;
+  border: 1px solid white;
+}
+
+.phone-details-page__info--img:hover {
+  border: 1px solid coral;
+  cursor: pointer;
+}
+
+.phone-details-page__info--img.select {
+  border: 1px solid coral;
+}
+
+.phone-details-page__info--img img {
+  width: 100%;
+}
+
+.phone-catalog__phone {
+  display: grid;
+  grid-template-columns: 120px 1fr 80px;
+  grid-template-rows: 110px;
+  margin-top: 15px;
+  padding: 5px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  background-color: white;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+.phone-catalog__phone--img {
+  padding: 5px 10px;
+}
+.phone-catalog__phone--img img {
+  width: 100%;
+}
+.phone-catalog__phone--info {
+  padding: 10px;
+}
+.phone-catalog__phone--info a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #c55a33;
+}
+.phone-catalog__phone--buy {
+  align-self: center;
+  background-color: coral;
+  border: none;
+  border-radius: 5px;
+  height: 30px;
+  width: 70px;
+  margin-right: 10px;
+}
+
+.phones-page {
+  width: 80%;
+  min-width: 900px;
+  margin: 0 auto;
+}
+
+body {
+  margin: 0;
+  background-color: whitesmoke;
+  font-family: sans-serif;
+}
+
+/*# sourceMappingURL=styles.css.map */

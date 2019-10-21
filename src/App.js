@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { NavLink, Switch, Route } from 'react-router-dom';
 import CatalogContext from './components/CatalogContext';
-import HomePage from './components/homePage/HomePage';
-import PhonesPage from './components/phonesPage/PhonesPage';
-import NotFoundPage from './components/notFoundPage/NotFoundPage';
-import PhoneDetailsPage from './components/phoneDetailsPage/PhoneDetailsPage';
-import Basket from './components/basket/Basket';
-import './App.css';
+import HomePage from './components/HomePage';
+import PhonesPage from './components/PhonesPage';
+import NotFoundPage from './components/NotFoundPage';
+import PhoneDetailsPage from './components/PhoneDetailsPage';
+import Basket from './components/Basket';
 
 const App = () => {
   const [basketStorage, setStorage] = useState(() => {

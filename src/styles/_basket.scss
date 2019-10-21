@@ -2,7 +2,8 @@
   margin: 10px auto;
   padding: 20px;
   width: 80%;
-  border: 1px solid coral;
+  border: 1px solid $main-color;
+  background-color: white;
 }
 
 .basket__list {
@@ -18,7 +19,7 @@
 }
 
 .basket__list--item:hover {
-  background-color: rgb(255, 242, 235);
+  background-color: $b-item-hover;
 }
 
 .basket__list--item a {
@@ -27,8 +28,8 @@
 }
 
 .basket__list--item a:hover {
-  text-decoration: underline rgb(228, 78, 24);
-  color: rgb(228, 78, 24);
+  text-decoration: underline $b-link-color;
+  color: $b-link-color;
 }
 
 .basket__count {
@@ -38,8 +39,8 @@
 .basket__empty {
   height: 100px;
   text-align: center;
-  background-color: rgb(255, 242, 235);
+  background-color: $b-item-hover;
   font-size: 50px;
   line-height: 100px;
-  color: rgb(175, 175, 175);
+  color: $b-light-font-color;
 }

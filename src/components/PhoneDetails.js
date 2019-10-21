@@ -1,16 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './phoneDetails.css';
 
 const PhoneDetails = ({ phone }) => {
   const propertys = [
-    'android',
-    'battery',
-    'camera',
-    'connectivity',
-    'storage',
-    'hardware',
-    'sizeAndWeight',
+    ['android', 'Android'],
+    ['battery', 'Battery'],
+    ['camera', 'Camera'],
+    ['connectivity', 'Connectivity'],
+    ['storage', 'Storage'],
+    ['hardware', 'Hardware'],
+    ['sizeAndWeight', 'Size & Weight'],
   ];
 
   const typeOfValues = (value) => {
@@ -30,29 +29,29 @@ const PhoneDetails = ({ phone }) => {
       {
         phone.length !== 0
           && (
-            <table className="phone-details__tabl">
+            <dl className="phone-details__tabl">
               {
                 propertys.map(prop => (
                   <>
-                    <th
-                      className="phone-details__tabl--property"
-                      colSpan="2"
-                    >
-                      {prop}
-                    </th>
+                    <dt>
+                      <b>{prop[1]}</b>
 
-                    {
-                      Object.entries(phone[prop]).map(values => (
-                        <tr>
-                          <td>{values[0]}</td>
-                          <td>{typeOfValues(values[1])}</td>
-                        </tr>
-                      ))
-                    }
+                      <dd>
+                        {
+                          Object.entries(phone[prop[0]]).map(values => (
+                            <div>
+                              <span>{values[0]}</span>
+                              <span>{typeOfValues(values[1])}</span>
+                              <div className="dash" />
+                            </div>
+                          ))
+                        }
+                      </dd>
+                    </dt>
                   </>
                 ))
               }
-            </table>
+            </dl>
           )
       }
     </div>

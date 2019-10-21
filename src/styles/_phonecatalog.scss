@@ -1,0 +1,44 @@
+.phone-catalog {
+
+  &__phone {
+    display: grid;
+    grid-template-columns: 120px 1fr 80px;
+    grid-template-rows: 110px;
+    // grid-column-gap: 10px;
+    margin-top: 15px;
+    padding: 5px;
+    box-sizing: border-box;
+    // border: 1px solid $pc-border;
+    border-radius: 4px;
+    background-color: white;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  &__phone--img {
+    padding: 5px 10px;
+  }
+
+  &__phone--img img {
+    width: 100%;
+  }
+
+  &__phone--info {
+    padding: 10px;
+  }
+
+  &__phone--info a {
+    text-decoration: none;
+    font-weight: 600;
+    color: $pc-h-font-color;
+  }
+
+  &__phone--buy {
+    align-self: center;
+    background-color: $main-color;
+    border: none;
+    border-radius: 5px;
+    height: 30px;
+    width: 70px;
+    margin-right: 10px;
+  }
+}

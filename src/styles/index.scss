@@ -1,0 +1,15 @@
+@import './valiables';
+
+@import './app';
+@import './basket';
+@import './filter';
+@import './phoneDetails';
+@import './phoneDetailsPage';
+@import './phonecatalog';
+@import './phonespage';
+
+body {
+  margin: 0;
+  background-color: $second-color;
+  font-family: sans-serif;
+}
