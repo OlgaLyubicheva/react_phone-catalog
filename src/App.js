@@ -46,7 +46,7 @@ const App = () => {
         <Basket.Count countOfItem={basketStorage} />
       </header>
 
-      <div>
+      <div className="page">
         <CatalogContext.Provider value={{ setStorage }}>
           <Switch>
             <Route path="/" exact component={HomePage} />
@@ -57,6 +57,13 @@ const App = () => {
           </Switch>
         </CatalogContext.Provider>
       </div>
+
+      <footer className="footer">
+        <p>
+          Liubicheva Olga
+        </p>
+        <p>2019</p>
+      </footer>
     </>
   );
 };

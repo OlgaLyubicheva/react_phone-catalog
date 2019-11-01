@@ -1,37 +1,37 @@
 .phone-details {
-  padding: 50px;
+  padding: 50px 10%;
+
+  summary:focus {
+    outline: none;
+    cursor: pointer;
+  }
 
   h3 {
+    display: inline-block;
     font-size: 28px;
   }
 }
 
 .phone-details__tabl {
   width: 100%;
-  column-count: 2;
-  column-gap: 40px;
 
   dt {
     margin-bottom: 10px;
   }
 
   dd div {
-    position: relative;
     display: flex;
-    justify-content: space-between;
   }
 
   dd div span {
-    background-color: $second-color;
     padding: 0 5px;
-    z-index: 10;
+    flex-shrink: 0;
   }
 
   dd .dash {
-    position: absolute;
-    bottom: 5px;
-    left: 0;
     width: 100%;
+    flex-shrink: 2;
+    margin-bottom: 5px;
     border-bottom: 1px dashed rgba(0, 0, 0, 0.2);
   }
 }

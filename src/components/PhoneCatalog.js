@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
 import Basket from './Basket';
 
-const PhoneCatalog = ({ phones, match }) => {
+const PhoneCatalog = ({ phones, match, view }) => {
   const { url } = match;
 
   return (
     <main className="phone-catalog">
 
       {phones.map(phone => (
-        <div className="phone-catalog__phone" key={phone.id}>
+        <div className={`phone-catalog__phone phone-catalog__phone--${view}`} key={phone.id}>
           <div className="phone-catalog__phone--img">
             <img src={`./${phone.imageUrl}`} alt="" />
           </div>

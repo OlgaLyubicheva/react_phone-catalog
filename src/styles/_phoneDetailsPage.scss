@@ -1,55 +1,48 @@
-// .phone-details-page {
-//   // display: grid;
-//   // grid-template-columns: 360px 1fr;
-//   // grid-column-gap: 40px;
-//   //padding: 0 20px;
-//   // box-sizing: border-box;
-//   // background-color: #fff;
-// }
+.phone-details-page {
+  &__main-img {
+    width: 360px;
+    padding: 20px 0;
+  }
 
-.phone-details-page__main-img {
-  width: 360px;
-  padding: 20px 0;
-}
+  &__main-img img {
+    width: inherit;
+  }
 
-.phone-details-page__main-img img {
-  width: inherit;
-}
+  &__info {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    grid-column-gap: 40px;
+    min-width: 460px;
+    text-align: justify;
+    padding: 0 20px;
+    background-color: #fff;
+  }
 
-.phone-details-page__info {
-  display: grid;
-  grid-template-columns: 360px 1fr;
-  grid-column-gap: 40px;
-  min-width: 460px;
-  text-align: justify;
-  padding: 0 20px;
-  background-color: #fff;
-}
+  &__info--name {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid $main-color;
+    padding: 0 20px;
+  }
 
-.phone-details-page__info--name {
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 2px solid $main-color;
-  padding: 0 20px;
-}
+  &__info--img {
+    display: inline-block;
+    width: 100px;
+    margin: 0 20px;
+    padding: 5px;
+    border: 1px solid white;
+  }
 
-.phone-details-page__info--img {
-  display: inline-block;
-  width: 100px;
-  margin: 0 20px;
-  padding: 5px;
-  border: 1px solid white;
-}
+  &__info--img:hover {
+    border: 1px solid $main-color;
+    cursor: pointer;
+  }
 
-.phone-details-page__info--img:hover {
-  border: 1px solid $main-color;
-  cursor: pointer;
-}
+  &__info--img.select {
+    border: 1px solid $main-color;
+  }
 
-.phone-details-page__info--img.select {
-  border: 1px solid $main-color;
-}
-
-.phone-details-page__info--img img {
-  width: 100%;
+  &__info--img img {
+    width: 100%;
+  }
 }

@@ -18,9 +18,17 @@ const getSortFunc = (value) => {
   }
 };
 
+const viewIcons = {
+  'card': './img/ico/card.svg',
+  'card-active': './img/ico/card_active.svg',
+  'list': './img/ico/list.svg',
+  'list-active': './img/ico/list_active.svg',
+};
+
 class PhonePage extends React.Component {
   state = {
     phones: [],
+    viewCatalog: 'card',
   }
 
   componentDidMount() {
@@ -71,13 +79,38 @@ class PhonePage extends React.Component {
     }
 
     const filtredPhones = this.getFiltredPhones(searchValues);
+    const { viewCatalog } = this.state;
 
     return (
       <div className="phones-page">
         <Filter searchValues={searchValues} />
 
+        <div className="phones-page__view-catalog">
+          <label htmlFor="grid">
+            <img src={viewCatalog === 'card' ? viewIcons["card-active"] : viewIcons.card} alt="View grid"/>
+          </label>
+          <input
+            type="radio"
+            id="grid"
+            value="card"
+            checked={viewCatalog === 'card'}
+            onClick={() => (viewCatalog !== 'card' ? this.setState({ viewCatalog: 'card' }) : '')}
+          />
+
+          <label htmlFor="line">
+            <img src={viewCatalog === 'list' ? viewIcons["list-active"] : viewIcons.list} alt="View grid"/>
+          </label>
+          <input
+            type="radio"
+            id="line"
+            value="list"
+            checked={viewCatalog === 'list'}
+            onClick={() => (viewCatalog !== 'list' ? this.setState({ viewCatalog: 'list' }) : '')}
+          />
+        </div>
+
         <div>
-          <PhoneCatalog phones={filtredPhones} />
+          <PhoneCatalog phones={filtredPhones} view={viewCatalog} />
         </div>
       </div>
     );

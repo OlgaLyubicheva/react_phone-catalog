@@ -2,4 +2,23 @@
   width: 80%;
   min-width: 900px;
   margin: 0 auto;
+
+  &__view-catalog {
+    position: relative;
+    text-align: end;
+
+    label {
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      background-color: whitesmoke;
+    }
+
+    label[for='grid'] {
+      right: 24px;
+    }
+  }
 }

@@ -56,6 +56,19 @@
   font-weight: 700;
 }
 
+.page {
+  min-height: calc(100vh - 120px - 80px);
+}
+
+.footer {
+  height: 100px;
+  padding: 10px;
+  margin-top: 20px;
+  box-sizing: border-box;
+  border-top: 2px solid coral;
+  text-align: center;
+}
+
 .basket {
   margin: 10px auto;
   padding: 20px;
@@ -63,37 +76,56 @@
   border: 1px solid coral;
   background-color: white;
 }
-
 .basket__list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-
 .basket__list--item {
+  position: relative;
   display: flex;
   justify-content: space-between;
   padding: 10px;
 }
-
 .basket__list--item:hover {
   background-color: #fff2eb;
 }
-
+.basket__list--item:hover .basket__list--img {
+  display: block;
+}
+.basket__list--img {
+  position: absolute;
+  display: none;
+  top: 31px;
+  left: 250px;
+  width: 100px;
+  z-index: 10;
+  padding: 5px;
+  background-color: white;
+  border: 1px solid coral;
+  border-radius: 0 20px 20px;
+  box-shadow: 3px 3px 0 coral;
+  transition: width 3s ease;
+}
+.basket__list--img:hover {
+  width: 400px;
+  cursor: zoom-in;
+}
 .basket__list--item a {
   text-decoration: none;
   color: black;
 }
-
 .basket__list--item a:hover {
   text-decoration: underline #e44e18;
   color: #e44e18;
 }
-
 .basket__count {
+  display: inline-block;
   width: 50px;
+  height: 19px;
+  text-align: center;
+  border: 1px solid whitesmoke;
 }
-
 .basket__empty {
   height: 100px;
   text-align: center;
@@ -125,35 +157,34 @@
 }
 
 .phone-details {
-  padding: 50px;
+  padding: 50px 10%;
+}
+.phone-details summary:focus {
+  outline: none;
+  cursor: pointer;
 }
 .phone-details h3 {
+  display: inline-block;
   font-size: 28px;
 }
 
 .phone-details__tabl {
   width: 100%;
-  column-count: 2;
-  column-gap: 40px;
 }
 .phone-details__tabl dt {
   margin-bottom: 10px;
 }
 .phone-details__tabl dd div {
-  position: relative;
   display: flex;
-  justify-content: space-between;
 }
 .phone-details__tabl dd div span {
-  background-color: whitesmoke;
   padding: 0 5px;
-  z-index: 10;
+  flex-shrink: 0;
 }
 .phone-details__tabl dd .dash {
-  position: absolute;
-  bottom: 5px;
-  left: 0;
   width: 100%;
+  flex-shrink: 2;
+  margin-bottom: 5px;
   border-bottom: 1px dashed rgba(0, 0, 0, 0.2);
 }
 
@@ -161,11 +192,9 @@
   width: 360px;
   padding: 20px 0;
 }
-
 .phone-details-page__main-img img {
   width: inherit;
 }
-
 .phone-details-page__info {
   display: grid;
   grid-template-columns: 360px 1fr;
@@ -175,14 +204,12 @@
   padding: 0 20px;
   background-color: #fff;
 }
-
 .phone-details-page__info--name {
   display: flex;
   justify-content: space-between;
   border-bottom: 2px solid coral;
   padding: 0 20px;
 }
-
 .phone-details-page__info--img {
   display: inline-block;
   width: 100px;
@@ -190,36 +217,51 @@
   padding: 5px;
   border: 1px solid white;
 }
-
 .phone-details-page__info--img:hover {
   border: 1px solid coral;
   cursor: pointer;
 }
-
 .phone-details-page__info--img.select {
   border: 1px solid coral;
 }
-
 .phone-details-page__info--img img {
   width: 100%;
 }
 
+.phone-catalog {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
 .phone-catalog__phone {
   display: grid;
-  grid-template-columns: 120px 1fr 80px;
-  grid-template-rows: 110px;
   margin-top: 15px;
   padding: 5px;
   box-sizing: border-box;
+  border: 2px solid white;
   border-radius: 4px;
   background-color: white;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+.phone-catalog__phone--list {
+  grid-template-columns: 120px 1fr 80px;
+  grid-template-rows: 110px;
+  width: 100%;
+}
+.phone-catalog__phone--card {
+  grid-template-rows: 160px 1fr 40px;
+  grid-template-columns: 1fr;
+  width: 19%;
+}
+.phone-catalog__phone:hover {
+  border: 2px solid #ffb59b;
 }
 .phone-catalog__phone--img {
   padding: 5px 10px;
 }
 .phone-catalog__phone--img img {
   width: 100%;
+  max-height: 150px;
 }
 .phone-catalog__phone--info {
   padding: 10px;
@@ -243,6 +285,38 @@
   width: 80%;
   min-width: 900px;
   margin: 0 auto;
+}
+.phones-page__view-catalog {
+  position: relative;
+  text-align: end;
+}
+.phones-page__view-catalog label {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-color: whitesmoke;
+}
+.phones-page__view-catalog label[for=grid] {
+  right: 24px;
+}
+
+.home__title {
+  padding: 0 20px;
+  border-bottom: 2px solid coral;
+  text-align: center;
+}
+.home__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+}
+.home__body p {
+  width: 80%;
+  text-align: justify;
 }
 
 body {

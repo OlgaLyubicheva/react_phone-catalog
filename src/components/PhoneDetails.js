@@ -24,8 +24,10 @@ const PhoneDetails = ({ phone }) => {
   };
 
   return (
-    <div className="phone-details">
-      <h3>Specification</h3>
+    <details className="phone-details" open>
+      <summary>
+        <h3>Specification</h3>
+      </summary>
       {
         phone.length !== 0
           && (
@@ -41,8 +43,8 @@ const PhoneDetails = ({ phone }) => {
                           Object.entries(phone[prop[0]]).map(values => (
                             <div>
                               <span>{values[0]}</span>
-                              <span>{typeOfValues(values[1])}</span>
                               <div className="dash" />
+                              <span>{typeOfValues(values[1])}</span>
                             </div>
                           ))
                         }
@@ -54,7 +56,7 @@ const PhoneDetails = ({ phone }) => {
             </dl>
           )
       }
-    </div>
+    </details>
   );
 };
 

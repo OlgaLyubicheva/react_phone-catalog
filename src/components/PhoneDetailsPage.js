@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/mouse-events-have-key-events */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React from 'react';
@@ -60,18 +61,7 @@ class PhoneDetailsPage extends React.Component {
                   <Basket.AddButton phone={phone} />
                 </div>
 
-                {/* <div className="phone-details-page__main-img">
-                  <img src={mainImg} alt="phone" />
-                </div> */}
-
                 <div className="phone-details-page__info">
-                  {/* <div className="phone-details-page__info--name">
-                    <h1>
-                      {phone.name}
-                    </h1>
-
-                    <Basket.AddButton phone={phone} />
-                  </div> */}
                   <div className="phone-details-page__main-img">
                     <img src={mainImg} alt="phone" />
                   </div>
@@ -92,7 +82,7 @@ class PhoneDetailsPage extends React.Component {
                               <img
                                 src={`./${image}`}
                                 alt="what the phone looks"
-                                onClick={() => this.changeImg(image)}
+                                onMouseOver={() => this.changeImg(image)}
                               />
                             </div>
                           ))

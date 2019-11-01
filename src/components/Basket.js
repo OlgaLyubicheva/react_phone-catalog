@@ -64,6 +64,12 @@ const Basket = ({ history }) => {
           currentBuy
             ? currentBuy.map((item, index) => (
               <li className="basket__list--item">
+                <img
+                  className="basket__list--img"
+                  src={`./img/phones/${item[0]}.0.jpg`}
+                  alt={sessionStorage[item[0]]}
+                />
+
                 <div>
                   <span>
                     {`${index + 1}.  `}
@@ -85,10 +91,9 @@ const Basket = ({ history }) => {
                     -
                   </button>
 
-                  <input
-                    className="basket__count"
-                    value={item[1]}
-                  />
+                  <span className="basket__count">
+                    {item[1]}
+                  </span>
 
                   <button
                     type="button"
