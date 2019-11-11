@@ -165,7 +165,7 @@
   width: 150px;
   padding: 2px 2px 2px 40px;
   height: 30px;
-  background: whitesmoke url(/img/ico/search.svg) no-repeat;
+  background: whitesmoke url(/react_phone-catalog/img/ico/search.svg) no-repeat;
   background-size: contain;
   border: 1px solid whitesmoke;
   outline: none;

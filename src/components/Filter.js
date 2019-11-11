@@ -22,15 +22,15 @@ const Filter = ({ history, searchValues }) => {
 
   return (
     <div className="filter">
-        <input
-          className="filter__query"
-          id="search-fild"
-          type="search"
-          name="query"
-          placeholder="Search"
-          value={searchValues.query}
-          onChange={e => handleChange(e)}
-        />
+      <input
+        className="filter__query"
+        id="search-fild"
+        type="search"
+        name="query"
+        placeholder="Search"
+        value={searchValues.query}
+        onChange={e => handleChange(e)}
+      />
 
       <select
         className="filter__sort"
