@@ -17,8 +17,23 @@
       background-color: whitesmoke;
     }
 
-    label[for='grid'] {
+    label[for='card'] {
       right: 24px;
     }
+  }
+}
+
+.phone-catalog {
+  display: grid;
+  grid-column-gap: 10px;
+  grid-row-gap: 15px;
+  margin-top: 20px;
+
+  &--list {
+    grid-template-columns: 1fr;
+  }
+
+  &--card {
+    grid-template-columns: repeat(5, 1fr);
   }
 }

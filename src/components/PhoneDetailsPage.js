@@ -53,12 +53,14 @@ class PhoneDetailsPage extends React.Component {
             )
             : (
               <>
-                <div className="phone-details-page__info--name">
+                <div className="phone-details-page__name">
                   <h1>
                     {phone.name}
                   </h1>
 
-                  <Basket.AddButton phone={phone} />
+                  {/* <div className="phone-details-page__buy">
+                    <Basket.AddButton phone={phone} />
+                  </div> */}
                 </div>
 
                 <div className="phone-details-page__info">
@@ -67,16 +69,23 @@ class PhoneDetailsPage extends React.Component {
                   </div>
 
                   <div>
+                    <div className="phone-details-page__buy">
+                      <div className="phone-card__cost">
+                        999`999.99
+                      </div>
+                      <Basket.AddButton phone={phone} />
+                    </div>
+
                     <p>
                       {phone.description}
                     </p>
 
-                    <div className="phone-details-page__info--imges">
+                    <div className="phone-details-page__imges">
                       {
                         (phone.images)
                           && phone.images.map(image => (
                             <div
-                              className={`phone-details-page__info--img
+                              className={`phone-details-page__img
                                 ${mainImg === image ? 'select' : undefined}`}
                             >
                               <img

@@ -1,6 +1,7 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import PropTypes from 'prop-types';
-import PhoneCatalog from './PhoneCatalog';
+import PhoneCard from './PhoneCard';
 import Filter from './Filter';
 import { getPhones } from './loadingData';
 
@@ -19,9 +20,9 @@ const getSortFunc = (value) => {
 };
 
 const viewIcons = {
-  'card': './img/ico/card.svg',
+  card: './img/ico/card.svg',
   'card-active': './img/ico/card_active.svg',
-  'list': './img/ico/list.svg',
+  list: './img/ico/list.svg',
   'list-active': './img/ico/list_active.svg',
 };
 
@@ -62,6 +63,7 @@ class PhonePage extends React.Component {
 
   render() {
     const { search } = this.props.location;
+    const { url } = this.props.match;
 
     const searchValues = {
       query: '',
@@ -86,41 +88,69 @@ class PhonePage extends React.Component {
         <Filter searchValues={searchValues} />
 
         <div className="phones-page__view-catalog">
-          <label htmlFor="grid">
-            <img src={viewCatalog === 'card' ? viewIcons["card-active"] : viewIcons.card} alt="View grid"/>
-          </label>
-          <input
-            type="radio"
-            id="grid"
-            value="card"
-            checked={viewCatalog === 'card'}
-            onClick={() => (viewCatalog !== 'card' ? this.setState({ viewCatalog: 'card' }) : '')}
+          <PhonePage.ViewButton
+            vStyle="card"
+            current={viewCatalog}
+            setView={v => this.setState({ viewCatalog: v })}
           />
 
-          <label htmlFor="line">
-            <img src={viewCatalog === 'list' ? viewIcons["list-active"] : viewIcons.list} alt="View grid"/>
-          </label>
-          <input
-            type="radio"
-            id="line"
-            value="list"
-            checked={viewCatalog === 'list'}
-            onClick={() => (viewCatalog !== 'list' ? this.setState({ viewCatalog: 'list' }) : '')}
+          <PhonePage.ViewButton
+            vStyle="list"
+            current={viewCatalog}
+            setView={v => this.setState({ viewCatalog: v })}
           />
         </div>
 
-        <div>
-          <PhoneCatalog phones={filtredPhones} view={viewCatalog} />
-        </div>
+        <main className={`phone-catalog phone-catalog--${viewCatalog}`}>
+
+          {filtredPhones.map(phone => (
+            <PhoneCard
+              phone={phone}
+              url={`${url}/${phone.id}`}
+              view={viewCatalog}
+            />
+          ))}
+        </main>
       </div>
     );
   }
 }
 
+PhonePage.ViewButton = ({ vStyle, current, setView }) => (
+  <>
+    <label htmlFor={vStyle}>
+      <img
+        src={
+          current === vStyle
+            ? viewIcons[`${vStyle}-active`]
+            : viewIcons[vStyle]
+        }
+        alt="View grid"
+      />
+    </label>
+    <input
+      type="radio"
+      id={vStyle}
+      value={vStyle}
+      checked={current === vStyle}
+      onClick={() => (current !== vStyle ? setView(vStyle) : '')}
+    />
+  </>
+);
+
 PhonePage.propTypes = {
   location: PropTypes.shape({
     search: PropTypes.string,
   }).isRequired,
+  match: PropTypes.shape({
+    url: PropTypes.string,
+  }).isRequired,
+};
+
+PhonePage.ViewButton.propTypes = {
+  vStyle: PropTypes.string.isRequired,
+  current: PropTypes.string.isRequired,
+  setView: PropTypes.func.isRequired,
 };
 
 export default PhonePage;

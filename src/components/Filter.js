@@ -22,8 +22,6 @@ const Filter = ({ history, searchValues }) => {
 
   return (
     <div className="filter">
-      <label htmlFor="search-fild" style={{ display: 'flex' }}>
-        <img src="./img/ico/search.svg" alt="" />
         <input
           className="filter__query"
           id="search-fild"
@@ -33,7 +31,6 @@ const Filter = ({ history, searchValues }) => {
           value={searchValues.query}
           onChange={e => handleChange(e)}
         />
-      </label>
 
       <select
         className="filter__sort"

@@ -1,0 +1,6 @@
+{
+  "telemetry.enableCrashReporter": false,
+  "telemetry.enableTelemetry": false,
+  "workbench.settings.enableNaturalLanguageSearch": false,
+  "files.eol": "\n"
+}

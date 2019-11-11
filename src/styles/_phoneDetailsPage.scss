@@ -18,14 +18,20 @@
     background-color: #fff;
   }
 
-  &__info--name {
+  &__name {
     display: flex;
     justify-content: space-between;
     border-bottom: 2px solid $main-color;
     padding: 0 20px;
   }
 
-  &__info--img {
+  &__buy {
+    width: 150px;
+    background-color: $second-color;
+    margin: 10px 0;
+  }
+
+  &__img {
     display: inline-block;
     width: 100px;
     margin: 0 20px;
@@ -33,16 +39,16 @@
     border: 1px solid white;
   }
 
-  &__info--img:hover {
+  &__img:hover {
     border: 1px solid $main-color;
     cursor: pointer;
   }
 
-  &__info--img.select {
+  &__img.select {
     border: 1px solid $main-color;
   }
 
-  &__info--img img {
+  &__img img {
     width: 100%;
   }
 }

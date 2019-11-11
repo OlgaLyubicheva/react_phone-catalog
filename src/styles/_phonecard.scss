@@ -1,0 +1,93 @@
+.phone-card {
+  position: relative;
+  display: grid;
+  padding: 5px;
+  box-sizing: border-box;
+  border: 2px solid white;
+  border-radius: 4px;
+  background-color: white;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+
+  &:hover {
+    border: 2px solid $pc-border;
+  }
+
+  &--list {
+    grid-template-columns: 120px 1fr 110px;
+    grid-template-rows: calc(110px - 2*5px);
+  }
+
+  &--list &__info p::after {
+    display: none;
+  }
+
+  &--card {
+    grid-template-rows: 160px calc(400px - 2*5px - 160px - 80px) 80px;
+  }
+
+  &__img {
+    padding: 5px 10px;
+  }
+
+  &__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  &__info {
+    display: flex;
+    flex-flow: column;
+    padding: 10px;
+  }
+
+  &__info a {
+    text-decoration: none;
+    font-weight: 600;
+    color: $pc-h-font-color;
+  }
+
+  &__info a::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+  }
+
+  &__info p {
+    overflow: hidden;
+    font-size: 14px;
+  }
+
+  &__info p::after {
+    content: "...see more";
+    position: absolute;
+    top: 290px;
+    display: block;
+    background-color: white;
+    width: 80%;
+    box-shadow: 0 -5px 5px white;
+    font-size: 12px;
+    font-style: italic;
+    color: #afafaf;
+    text-align: right;
+    z-index: 1;
+  }
+
+  &__buy {
+    width: 100%;
+    align-self: center;
+  }
+
+  &__cost {
+    display: flex;
+    height: 40px;
+    border-top: 1px solid $main-color;
+    justify-content: center;
+    align-items: center;
+    font-style: italic;
+  }
+}

@@ -1,6 +1,7 @@
 .header {
   position: sticky;
   top: 0;
+  z-index: 20;
   display: flex;
   box-sizing: border-box;
   padding: 0 10px;
@@ -40,7 +41,7 @@
 .header__basket img {
   width: 100%;
 }
-.header__basket--count {
+.header__basket-count {
   position: absolute;
   top: 10px;
   right: 15px;
@@ -73,49 +74,40 @@
   margin: 10px auto;
   padding: 20px;
   width: 80%;
-  border: 1px solid coral;
-  background-color: white;
 }
 .basket__list {
   list-style: none;
   padding: 0;
   margin: 0;
+  background-color: white;
 }
-.basket__list--item {
+.basket__list-item {
   position: relative;
   display: flex;
   justify-content: space-between;
-  padding: 10px;
+  padding: 0 20px;
 }
-.basket__list--item:hover {
+.basket__list-item:hover {
   background-color: #fff2eb;
 }
-.basket__list--item:hover .basket__list--img {
-  display: block;
+.basket__list-title {
+  display: flex;
+  align-items: center;
 }
-.basket__list--img {
-  position: absolute;
-  display: none;
-  top: 31px;
-  left: 250px;
+.basket__list-img {
   width: 100px;
-  z-index: 10;
-  padding: 5px;
-  background-color: white;
-  border: 1px solid coral;
-  border-radius: 0 20px 20px;
-  box-shadow: 3px 3px 0 coral;
+  margin: 0 20px;
   transition: width 3s ease;
 }
-.basket__list--img:hover {
-  width: 400px;
+.basket__list-img:hover {
+  width: 300px;
   cursor: zoom-in;
 }
-.basket__list--item a {
+.basket__list-item a {
   text-decoration: none;
   color: black;
 }
-.basket__list--item a:hover {
+.basket__list-item a:hover {
   text-decoration: underline #e44e18;
   color: #e44e18;
 }
@@ -129,10 +121,39 @@
 .basket__empty {
   height: 100px;
   text-align: center;
-  background-color: #fff2eb;
   font-size: 50px;
   line-height: 100px;
   color: #afafaf;
+}
+.basket__total {
+  margin-top: 20px;
+  text-align: right;
+}
+
+.add-button {
+  position: relative;
+  background-color: coral;
+  border: 2px solid coral;
+  border-radius: 5px;
+  height: 30px;
+  width: 100%;
+  z-index: 5;
+  color: white;
+}
+.add-button:hover {
+  background-color: white;
+  color: coral;
+  cursor: pointer;
+}
+.add-button:disabled {
+  color: gray;
+  background-color: whitesmoke;
+}
+
+.pay-button {
+  display: inline-block;
+  width: 100px;
+  margin-left: 50px;
 }
 
 .filter {
@@ -141,14 +162,18 @@
   padding: 10px 5px;
 }
 .filter__query {
-  width: 200px;
-  margin: 0 20px;
+  width: 150px;
+  padding: 2px 2px 2px 40px;
   height: 30px;
-  background-color: whitesmoke;
+  background: whitesmoke url(/img/ico/search.svg) no-repeat;
+  background-size: contain;
   border: 1px solid whitesmoke;
   outline: none;
+  font-size: 16px;
+  transition: 2s ease 0.2s;
 }
 .filter__query:focus {
+  width: 700px;
   border-bottom-color: coral;
 }
 .filter__sort {
@@ -204,38 +229,38 @@
   padding: 0 20px;
   background-color: #fff;
 }
-.phone-details-page__info--name {
+.phone-details-page__name {
   display: flex;
   justify-content: space-between;
   border-bottom: 2px solid coral;
   padding: 0 20px;
 }
-.phone-details-page__info--img {
+.phone-details-page__buy {
+  width: 150px;
+  background-color: whitesmoke;
+  margin: 10px 0;
+}
+.phone-details-page__img {
   display: inline-block;
   width: 100px;
   margin: 0 20px;
   padding: 5px;
   border: 1px solid white;
 }
-.phone-details-page__info--img:hover {
+.phone-details-page__img:hover {
   border: 1px solid coral;
   cursor: pointer;
 }
-.phone-details-page__info--img.select {
+.phone-details-page__img.select {
   border: 1px solid coral;
 }
-.phone-details-page__info--img img {
+.phone-details-page__img img {
   width: 100%;
 }
 
-.phone-catalog {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-.phone-catalog__phone {
+.phone-card {
+  position: relative;
   display: grid;
-  margin-top: 15px;
   padding: 5px;
   box-sizing: border-box;
   border: 2px solid white;
@@ -243,42 +268,75 @@
   background-color: white;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
-.phone-catalog__phone--list {
-  grid-template-columns: 120px 1fr 80px;
-  grid-template-rows: 110px;
-  width: 100%;
-}
-.phone-catalog__phone--card {
-  grid-template-rows: 160px 1fr 40px;
-  grid-template-columns: 1fr;
-  width: 19%;
-}
-.phone-catalog__phone:hover {
+.phone-card:hover {
   border: 2px solid #ffb59b;
 }
-.phone-catalog__phone--img {
+.phone-card--list {
+  grid-template-columns: 120px 1fr 110px;
+  grid-template-rows: calc(110px - 2*5px);
+}
+.phone-card--list .phone-card__info p::after {
+  display: none;
+}
+.phone-card--card {
+  grid-template-rows: 160px calc(400px - 2*5px - 160px - 80px) 80px;
+}
+.phone-card__img {
   padding: 5px 10px;
 }
-.phone-catalog__phone--img img {
+.phone-card__img img {
   width: 100%;
-  max-height: 150px;
+  height: 100%;
+  object-fit: contain;
 }
-.phone-catalog__phone--info {
+.phone-card__info {
+  display: flex;
+  flex-flow: column;
   padding: 10px;
 }
-.phone-catalog__phone--info a {
+.phone-card__info a {
   text-decoration: none;
   font-weight: 600;
   color: #c55a33;
 }
-.phone-catalog__phone--buy {
+.phone-card__info a::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+.phone-card__info p {
+  overflow: hidden;
+  font-size: 14px;
+}
+.phone-card__info p::after {
+  content: "...see more";
+  position: absolute;
+  top: 290px;
+  display: block;
+  background-color: white;
+  width: 80%;
+  box-shadow: 0 -5px 5px white;
+  font-size: 12px;
+  font-style: italic;
+  color: #afafaf;
+  text-align: right;
+  z-index: 1;
+}
+.phone-card__buy {
+  width: 100%;
   align-self: center;
-  background-color: coral;
-  border: none;
-  border-radius: 5px;
-  height: 30px;
-  width: 70px;
-  margin-right: 10px;
+}
+.phone-card__cost {
+  display: flex;
+  height: 40px;
+  border-top: 1px solid coral;
+  justify-content: center;
+  align-items: center;
+  font-style: italic;
 }
 
 .phones-page {
@@ -299,8 +357,21 @@
   height: 24px;
   background-color: whitesmoke;
 }
-.phones-page__view-catalog label[for=grid] {
+.phones-page__view-catalog label[for=card] {
   right: 24px;
+}
+
+.phone-catalog {
+  display: grid;
+  grid-column-gap: 10px;
+  grid-row-gap: 15px;
+  margin-top: 20px;
+}
+.phone-catalog--list {
+  grid-template-columns: 1fr;
+}
+.phone-catalog--card {
+  grid-template-columns: repeat(5, 1fr);
 }
 
 .home__title {

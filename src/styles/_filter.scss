@@ -4,15 +4,19 @@
   padding: 10px 5px;
 
   &__query {
-    width: 200px;
-    margin: 0 20px;
+    width: 150px;
+    padding: 2px 2px 2px 40px;
     height: 30px;
-    background-color: $second-color;
+    background: $second-color url(/img/ico/search.svg) no-repeat;
+    background-size: contain;
     border: 1px solid $second-color;
     outline: none;
+    font-size: 16px;
+    transition: 2s ease 0.2s;
   }
 
   &__query:focus {
+    width: 700px;
     border-bottom-color: $main-color;
   }
 

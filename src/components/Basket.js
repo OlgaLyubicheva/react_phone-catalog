@@ -11,6 +11,25 @@ const Basket = ({ history }) => {
       .split('&')
       .map(item => item.split('*'));
 
+  let total = (currentBuy || [])
+    .map(item => item[1] * item[2])
+    .reduce((ac, cur) => ac + cur, 0)
+    .toFixed(2);
+
+  if (total > 0) {
+    total = total.toString().split('');
+    const n = total.length - 3;
+    const count = n % 3 !== 0 ? Math.floor(n / 3) : n / 3 - 1;
+
+    for (let i = 1; i <= count; i++) {
+      total[n - 3 * i] = `\`${total[n - 3 * i]}`;
+    }
+
+    total = total.join('');
+  } else {
+    total = '0.00';
+  }
+
   const nestNewBuy = (buy) => {
     const newBuy = buy.map(item => item.join('*')).join('&');
 
@@ -35,7 +54,7 @@ const Basket = ({ history }) => {
     const newBuy = [...currentBuy];
     const index = currentBuy.indexOf(id);
 
-    newBuy[index] = [id[0], +id[1] + 1];
+    newBuy[index] = [id[0], +id[1] + 1, id[2]];
 
     nestNewBuy(newBuy);
 
@@ -47,7 +66,7 @@ const Basket = ({ history }) => {
     const index = currentBuy.indexOf(id);
 
     if (+id[1] - 1 !== 0) {
-      newBuy[index] = [id[0], +id[1] - 1];
+      newBuy[index] = [id[0], +id[1] - 1, id[2]];
 
       nestNewBuy(newBuy);
 
@@ -63,17 +82,23 @@ const Basket = ({ history }) => {
         {
           currentBuy
             ? currentBuy.map((item, index) => (
-              <li className="basket__list--item">
-                <img
+              <li className="basket__list-item">
+                {/* <img
                   className="basket__list--img"
                   src={`./img/phones/${item[0]}.0.jpg`}
                   alt={sessionStorage[item[0]]}
-                />
+                /> */}
 
-                <div>
+                <div className="basket__list-title">
                   <span>
                     {`${index + 1}.  `}
                   </span>
+
+                  <img
+                    className="basket__list-img"
+                    src={`./img/phones/${item[0]}.0.jpg`}
+                    alt={sessionStorage[item[0]]}
+                  />
 
                   <Link
                     to={`/phones/${item[0]}`}
@@ -84,32 +109,39 @@ const Basket = ({ history }) => {
                 </div>
 
                 <div>
-                  <button
-                    type="button"
-                    onClick={() => decrease(item)}
-                  >
-                    -
-                  </button>
-
-                  <span className="basket__count">
-                    {item[1]}
+                  <span className="phone-card__cost">
+                    {item[2]}
                   </span>
 
-                  <button
-                    type="button"
-                    onClick={() => increase(item)}
-                  >
-                    +
-                  </button>
+                  <div>
+                    <button
+                      type="button"
+                      onClick={() => decrease(item)}
+                    >
+                      -
+                    </button>
 
-                  <button
-                    className="basket__delete"
-                    type="button"
-                    onClick={() => deleteItem(item[0])}
-                  >
-                    x
-                  </button>
+                    <span className="basket__count">
+                      {item[1]}
+                    </span>
+
+                    <button
+                      type="button"
+                      onClick={() => increase(item)}
+                    >
+                      +
+                    </button>
+
+                    <button
+                      className="basket__delete"
+                      type="button"
+                      onClick={() => deleteItem(item[0])}
+                    >
+                      x
+                    </button>
+                  </div>
                 </div>
+
               </li>
             ))
             : (
@@ -119,24 +151,34 @@ const Basket = ({ history }) => {
             )
         }
       </ul>
+      <div className="basket__total">
+        <span>Total sum: </span>
+        {total}
+        <div className="pay-button">
+          {
+            total !== '0.00'
+            && <button type="button" className="add-button">Pay</button>
+          }
+        </div>
+      </div>
     </div>
   );
 };
 
 Basket.Count = ({ countOfItem }) => (
   countOfItem !== 0 && (
-    <div className="header__basket--count">
+    <div className="header__basket-count">
       {countOfItem}
     </div>
   )
 );
 
 Basket.AddButton = ({ phone }) => {
-  const addToBasket = (id, name, setStorage) => {
+  const addToBasket = (id, name, cost, setStorage) => {
     if (sessionStorage.getItem('buy')) {
-      sessionStorage.buy += `&${id}*1`;
+      sessionStorage.buy += `&${id}*1*${cost}`;
     } else {
-      sessionStorage.buy = `${id}*1`;
+      sessionStorage.buy = `${id}*1*${cost}`;
     }
 
     sessionStorage.setItem(id, name);
@@ -151,8 +193,8 @@ Basket.AddButton = ({ phone }) => {
           <button
             type="button"
             disabled={sessionStorage.getItem(phone.id) && true}
-            className="phone-catalog__phone--buy"
-            onClick={() => addToBasket(phone.id, phone.name, setStorage)}
+            className="add-button"
+            onClick={() => addToBasket(phone.id, phone.name, 999999.99, setStorage)}
           >
             {
               sessionStorage.getItem(phone.id)
