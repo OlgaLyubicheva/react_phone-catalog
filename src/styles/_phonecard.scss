@@ -15,6 +15,7 @@
   &--list {
     grid-template-columns: 120px 1fr 110px;
     grid-template-rows: calc(110px - 2*5px);
+    transition: 2s ease;
   }
 
   &--list &__info p::after {
@@ -89,5 +90,17 @@
     justify-content: center;
     align-items: center;
     font-style: italic;
+  }
+}
+
+@media (max-width: 900px) {
+  .phone-card--list {
+    grid-template-rows: calc(140px - 2*5px);
+  }
+}
+
+@media (max-width: 768px) {
+  .phone-card--list {
+    grid-template-rows: calc(180px - 2*5px);
   }
 }

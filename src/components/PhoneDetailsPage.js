@@ -57,10 +57,6 @@ class PhoneDetailsPage extends React.Component {
                   <h1>
                     {phone.name}
                   </h1>
-
-                  {/* <div className="phone-details-page__buy">
-                    <Basket.AddButton phone={phone} />
-                  </div> */}
                 </div>
 
                 <div className="phone-details-page__info">
@@ -68,7 +64,7 @@ class PhoneDetailsPage extends React.Component {
                     <img src={mainImg} alt="phone" />
                   </div>
 
-                  <div>
+                  <div className="phone-details-page__info-body">
                     <div className="phone-details-page__buy">
                       <div className="phone-card__cost">
                         999`999.99

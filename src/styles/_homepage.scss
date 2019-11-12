@@ -6,7 +6,8 @@
 .slider {
   position: relative;
   width: 100%;
-  height: 500px;
+  height: 40vw;
+  min-height: 300px;
   overflow: hidden;
 
   &__item img {
@@ -16,6 +17,6 @@
   &__dots {
     position: absolute;
     bottom: 10px;
-    left: 50%;
+    left: calc(50% - 42px);
   }
 }
