@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 const sliders = [
-  '/img/slider/1.jpg',
-  '/img/slider/2.jpg',
-  '/img/slider/3.jpg',
-  '/img/slider/4.jpg',
+  'img/slider/1.jpg',
+  'img/slider/2.jpg',
+  'img/slider/3.jpg',
+  'img/slider/4.jpg',
 ];
 const HomePage = () => {
   const [index, setIndex] = useState(0);
@@ -41,13 +42,23 @@ const HomePage = () => {
   );
 };
 
-HomePage.Dot = ({slide, index, check}) => (
+HomePage.Dot = ({ slide, index, check }) => (
   <input
     type="radio"
     name="slider"
     checked={index === slide}
-    onClick={() => { if (index !== slide) { check(slide); } }}
+    onClick={() => {
+      if (index !== slide) {
+        check(slide);
+      }
+    }}
   />
 );
+
+HomePage.Dot.propTypes = {
+  slide: PropTypes.number.isRequired,
+  index: PropTypes.number.isRequired,
+  check: PropTypes.func.isRequired,
+};
 
 export default HomePage;

@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -21,7 +22,7 @@ const Basket = ({ history }) => {
     const n = total.length - 3;
     const count = n % 3 !== 0 ? Math.floor(n / 3) : n / 3 - 1;
 
-    for (let i = 1; i <= count; i++) {
+    for (let i = 1; i <= count; i += 1) {
       total[n - 3 * i] = `\`${total[n - 3 * i]}`;
     }
 
