@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
 const sliders = [
-  'https://www.ridus.ru/images/2018/12/14/856347/in_article_ac4d4b4b3b.jpg',
-  'https://images.product-test.ru/imageresizer/files/d5564816-b9a8-4e21-92f6-03e8f0611f23_600.jpg',
-  'https://bigpicture.ru/wp-content/uploads/2017/03/smartf2.jpg',
-  'http://www.medlinks.ru/images/art/all25/111308.jpg',
+  '/img/slider/1.jpg',
+  '/img/slider/2.jpg',
+  '/img/slider/3.jpg',
+  '/img/slider/4.jpg',
 ];
 const HomePage = () => {
   const [index, setIndex] = useState(0);
